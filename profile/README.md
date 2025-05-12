@@ -26,13 +26,13 @@ A powerful video player that supports play from ftp,sftp,webdav and cloud storag
 
 [![Static Badge](https://img.shields.io/badge/Linux_x86_64_deb-v0.0.3_beta-blue?style=flat)](https://file.medianex.app/linux/medianex-0.0.3-beta-linux.deb)
 
-![Static Badge](https://img.shields.io/badge/Windows_exe-v0.0.3_beta-blue?style=flat)
-
 ![Static Badge](https://img.shields.io/badge/IOS-Coming_Soon-green?style=flat)
 
-![Static Badge](https://img.shields.io/badge/Android_TV-Coming_Soon-green?style=flat)
+![Static Badge](https://img.shields.io/badge/Apple_TV-Coming_Soon-green?style=flat)
 
-![Static Ba bydge](https://img.shields.io/badge/Apple_TV-Coming_Soon-green?style=flat)
+![Static Badge](https://img.shields.io/badge/Android-Coming_Soon-green?style=flat)
+
+![Static Badge](https://img.shields.io/badge/Android_TV-Coming_Soon-green?style=flat)
 
 ### Discussions
 
