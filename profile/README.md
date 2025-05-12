@@ -24,7 +24,7 @@ A powerful video player that supports play from ftp,sftp,webdav and cloud storag
 
 ![Static Badge](https://img.shields.io/badge/Macos_dmg_x86_64-v0.0.3_beta-blue?style=flat&link=https://file.medianex.app/macos/medianex-0.0.3-beta-macos-x86_64.dmg)  
 
-![Static Badge](https://img.shields.io/badge/Windows_exe-v0.0.3_beta-blue?style=flat&link=https://file.medianex.app/windows/medianex-0.0.3-beta-windows-setup.exe)  
+![Static Badge](https://img.shields.io/badge/Windows_exe-v0.0.3_beta-blue?style=flat&link=https%3A%2F%2Ffile.medianex.app%2Fwindows%2Fmedianex-0.0.3-beta-windows-setup.exe)  
 
 ![Static Badge](https://img.shields.io/badge/Android-Coming_soon-blue?style=flat)  
 
