@@ -3,6 +3,7 @@ A powerful video player that supports play from ftp,sftp,webdav and cloud storag
 
 >Medianex is not open source,this orgs only store plugins and other depend repo
 
+
 <details>
 <summary>Screenshot</summary>
 
@@ -11,16 +12,19 @@ A powerful video player that supports play from ftp,sftp,webdav and cloud storag
 ![](../screenshot/03.png)
 ![](../screenshot/04.png)
 ![](../screenshot/05.png)
-![](../screenshot/06.png)。
+![](../screenshot/06.png)
 </details>
 
 
-### Support Platform
-![Static Badge](https://img.shields.io/badge/Linux_Deb-v0.0.1_beta-blue?style=flat&link=https%3A%2F%2Flink.com)  
+### Downloads
 
-![Static Badge](https://img.shields.io/badge/Macos_Dmg-v0.0.1_beta-blue?style=flat&link=https%3A%2F%2Flink.com)  
+![Static Badge](https://img.shields.io/badge/Linux_Deb-v0.0.3_beta-blue?style=flat&link=https://file.medianex.app/linux/medianex-0.0.3-beta-linux.deb)  
 
-![Static Badge](https://img.shields.io/badge/Windows_Exe-v0.0.1_beta-blue?style=flat&link=https%3A%2F%2Flink.com)  
+![Static Badge](https://img.shields.io/badge/Macos_Dmg_Arm64-v0.0.3_beta-blue?style=flat&link=https://file.medianex.app/macos/medianex-0.0.3-beta-macos-arm64.dmg)  
+
+![Static Badge](https://img.shields.io/badge/Macos_Dmg_x86_64-v0.0.3_beta-blue?style=flat&link=https://file.medianex.app/macos/medianex-0.0.3-beta-macos-x86_64.dmg)  
+
+![Static Badge](https://img.shields.io/badge/Windows_Exe-v0.0.3_beta-blue?style=flat&link=https://file.medianex.app/windows/medianex-0.0.3-beta-windows-setup.exe)  
 
 ![Static Badge](https://img.shields.io/badge/Android-Coming_soon-blue?style=flat)  
 
@@ -47,9 +51,10 @@ A powerful video player that supports play from ftp,sftp,webdav and cloud storag
 2. Init Plugin Project  
     `plugin_api init plugin_name`
 3. Impl Plugin Method in file `plugin_impl.go`
-4. Build Plugin  
+4. Create your plugin's icon file and change plugin toml config file 
+5. Build Plugin  
     `make`
-
+6. Install Plugin From Local
 
 
 ### Follow Author
