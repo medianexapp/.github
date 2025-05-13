@@ -7,12 +7,14 @@ A powerful video player, supports various protocols and cloud disks, automatic g
 <details>
 <summary>Screenshot</summary>
 
-![](../screenshot/01.png)
-![](../screenshot/02.png)
-![](../screenshot/03.png)
-![](../screenshot/04.png)
-![](../screenshot/05.png)
-![](../screenshot/06.png)
+![](https://file.medianex.app/screenshot/1.png)
+![](https://file.medianex.app/screenshot/2.png)
+![](https://file.medianex.app/screenshot/3.png)
+![](https://file.medianex.app/screenshot/4.png)
+![](https://file.medianex.app/screenshot/5.png)
+![](https://file.medianex.app/screenshot/6.png)
+![](https://file.medianex.app/screenshot/7.png)
+![](https://file.medianex.app/screenshot/8.png)
 
 </details>
 
