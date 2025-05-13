@@ -40,6 +40,8 @@ A powerful video player, supports various protocols and cloud disks, automatic g
 
 ### Support plugins
 
+Support various protocols and cloud disk access through plug-in design, plugins base on webassembly
+
 [Plugins](https://github.com/medianexapp/plugins)
 
 ### How to devlop a plugin
@@ -50,7 +52,8 @@ A powerful video player, supports various protocols and cloud disks, automatic g
 1. Install [plugin_api](https://github.com/medianexapp/plugin_api)  
    `go install github.com/medianexapp/plugin_api/cmd/plugin_api@main`
 2. Init Plugin Project  
-   `plugin_api init plugin_name`
+   `plugin_api init example`  
+   `cd example`
 3. Impl Plugin Method in file `plugin_impl.go`
 4. Create your plugin's icon file and change plugin toml config file
 5. Build Plugin  
