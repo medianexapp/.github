@@ -46,7 +46,7 @@ A powerful video player, supports various protocols and cloud disks, automatic g
 
 ## Support Plugins
 
-Support various protocols and cloud disk access through plug-in design, plugins base on webassembly
+Support various protocols and cloud disk access through plug-in design, plugins base on Webassembly
 
 [Plugins](https://github.com/medianexapp/plugins)
 
