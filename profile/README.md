@@ -1,6 +1,6 @@
 ## Medianex
 
-A powerful video player that supports play from ftp,sftp,webdav and cloud storage base on plugin, auto generate a beautiful poster wall.
+A powerful video player, supports various protocols and cloud disks, automatic generation of beautiful poster walls.
 
 > Medianex is not open source,this orgs only store plugins and other depend repo
 
