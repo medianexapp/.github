@@ -20,13 +20,13 @@ A powerful video player, supports various protocols and cloud disks, automatic g
 
 ![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/medianexapp/.github/total)
 
-[![Static Badge](https://img.shields.io/badge/Macos_arm64_dmg-v0.0.4_beta-blue?style=flat)](https://file.medianex.app/macos/medianex-0.0.4-beta-macos-arm64.dmg)
+[![Static Badge](https://img.shields.io/badge/Macos_arm64_dmg-v0.0.4_beta-blue?style=flat)](https://file.medianex.app/release/0.0.4-beta/medianex-0.0.4-beta-macos_arm64.dmg)
 
-[![Static Badge](https://img.shields.io/badge/Macos_x86_64_dmg-v0.0.4_beta-blue?style=flat)](https://file.medianex.app/macos/medianex-0.0.4-beta-macos-x86_64.dmg)
+[![Static Badge](https://img.shields.io/badge/Macos_x86_64_dmg-v0.0.4_beta-blue?style=flat)](https://file.medianex.app/release/0.0.4-beta/medianex-0.0.4-beta-macos_x86_64.dmg)
 
-[![Static Badge](https://img.shields.io/badge/Windows_x86_64_exe-v0.0.4_beta-blue?style=flat)](https://file.medianex.app/windows/medianex-0.0.3-beta-windows-setup.exe)
+[![Static Badge](https://img.shields.io/badge/Windows_x86_64_exe-v0.0.4_beta-blue?style=flat)](https://file.medianex.app/release/0.0.4-beta/medianex-0.0.4-beta-windows-setup_x86_64.exe)
 
-[![Static Badge](https://img.shields.io/badge/Linux_x86_64_deb-v0.0.4_beta-blue?style=flat)](https://file.medianex.app/linux/medianex-0.0.3-beta-linux.deb)
+[![Static Badge](https://img.shields.io/badge/Linux_x86_64_deb-v0.0.4_beta-blue?style=flat)](https://file.medianex.app/release/0.0.4-beta/medianex-0.0.4-beta-linux_x86_64.deb)
 
 ![Static Badge](https://img.shields.io/badge/IOS-Coming_Soon-green?style=flat)
 
