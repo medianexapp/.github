@@ -18,8 +18,6 @@ A powerful video player, supports various protocols and cloud disks, automatic g
 
 ## Support Platform And Downloads
 
-![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/medianexapp/.github/total)
-
 [![Static Badge](https://img.shields.io/badge/Macos_arm64_dmg-v0.0.4_beta-blue?style=flat)](https://file.medianex.app/release/0.0.4-beta/medianex-0.0.4-beta-macos_arm64.dmg)
 
 [![Static Badge](https://img.shields.io/badge/Macos_x86_64_dmg-v0.0.4_beta-blue?style=flat)](https://file.medianex.app/release/0.0.4-beta/medianex-0.0.4-beta-macos_x86_64.dmg)
