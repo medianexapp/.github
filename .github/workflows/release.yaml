@@ -1,11 +1,9 @@
-name: Build
+name: Release
 
 on:
   push:
-    branch:
-      - main
-    tag:
-      - "*"
+    tags:
+      - "v*"
 
 env:
   GO_VERSION: "1.24.3"
@@ -35,7 +33,7 @@ jobs:
       - name: Test Lib
         run: |
           bash script/libtest.sh
-  BuildServer:
+  ReleaseServer:
     needs: UnitTest
     runs-on: ubuntu-latest
     defaults:
@@ -60,11 +58,11 @@ jobs:
           docker login ghcr.io -u labulakalia -p ${{ secrets.TOKEN_PAT }}
           make build_server
 
-  BuildLib:
+  ReleaseLib:
     needs: UnitTest
     strategy:
       matrix:
-        os: [ubuntu-latest] #macos-latest, windows-latest
+        os: [ubuntu-latest, macos-latest, windows-latest] #
     runs-on: ${{ matrix.os }}
     defaults:
       run:
@@ -93,11 +91,11 @@ jobs:
         with:
           name: libmedianex_${{ runner.os }}
           path: libmedianex/dist
-  BuildAPP:
-    needs: BuildLib
+  ReleaseAPP:
+    needs: ReleaseLib
     strategy:
       matrix:
-        os: [ubuntu-latest] #
+        os: [ubuntu-latest, macos-latest, macos-13, windows-latest] #
     runs-on: ${{ matrix.os }}
     defaults:
       run:
@@ -182,3 +180,6 @@ jobs:
           endpoint: ${{ secrets.S3_ENDPOINT }}
           source_dir: "medianexui/dist"
           destination_dir: "release"
+      - uses: geekyeggo/delete-artifact@v5
+        with:
+          name: libmedianex_${{ runner.os }}

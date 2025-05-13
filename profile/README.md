@@ -18,9 +18,11 @@ A powerful video player, supports various protocols and cloud disks, automatic g
 
 ## Support Platform And Downloads
 
-[![Static Badge](https://img.shields.io/badge/Macos_arm64_dmg-v0.0.4_beta-blue?style=flat)](https://file.medianex.app/macos/medianex-0.0.3-beta-macos-arm64.dmg)
+![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/medianexapp/.github/total)
 
-[![Static Badge](https://img.shields.io/badge/Macos_x86_64_dmg-v0.0.4_beta-blue?style=flat)](https://file.medianex.app/macos/medianex-0.0.3-beta-macos-x86_64.dmg)
+[![Static Badge](https://img.shields.io/badge/Macos_arm64_dmg-v0.0.4_beta-blue?style=flat)](https://file.medianex.app/macos/medianex-0.0.4-beta-macos-arm64.dmg)
+
+[![Static Badge](https://img.shields.io/badge/Macos_x86_64_dmg-v0.0.4_beta-blue?style=flat)](https://file.medianex.app/macos/medianex-0.0.4-beta-macos-x86_64.dmg)
 
 [![Static Badge](https://img.shields.io/badge/Windows_x86_64_exe-v0.0.4_beta-blue?style=flat)](https://file.medianex.app/windows/medianex-0.0.3-beta-windows-setup.exe)
 
@@ -35,6 +37,8 @@ A powerful video player, supports various protocols and cloud disks, automatic g
 ![Static Badge](https://img.shields.io/badge/Android_TV-Coming_Soon-green?style=flat)
 
 ## Future Request OR Report Bug
+
+![GitHub Discussions](https://img.shields.io/github/discussions/medianexapp/.github)
 
 [Future Request](https://github.com/orgs/medianexapp/discussions/new?category=future-request)
 
