@@ -2,6 +2,8 @@ name: Build
 
 on:
   push:
+    branch:
+      - main
     tag:
       - "*"
 
@@ -62,7 +64,7 @@ jobs:
     needs: UnitTest
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest] #macos-latest, windows-latest
+        os: [ubuntu-latest] #macos-latest, windows-latest
     runs-on: ${{ matrix.os }}
     defaults:
       run:
@@ -95,7 +97,7 @@ jobs:
     needs: BuildLib
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest, macos-13, windows-latest] #
+        os: [ubuntu-latest] #
     runs-on: ${{ matrix.os }}
     defaults:
       run:
@@ -171,3 +173,12 @@ jobs:
           name: ${{ env.REPO_TAG }}
           tag_name: ${{ env.REPO_TAG }}
           files: medianexui/dist/**/*
+      - name: Upload S3
+        uses: shallwefootball/s3-upload-action@master
+        with:
+          aws_key_id: ${{ secrets.S3_KEY }}
+          aws_secret_access_key: ${{ secrets.S3_SECRET}}
+          aws_bucket: ${{ secrets.S3_BUCKET }}
+          endpoint: ${{ secrets.S3_ENDPOINT }}
+          source_dir: "medianexui/dist"
+          destination_dir: "release"
