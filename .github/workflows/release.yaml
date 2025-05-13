@@ -1,0 +1,173 @@
+name: Build
+
+on:
+  push:
+    tag:
+      - "*"
+
+env:
+  GO_VERSION: "1.24.3"
+  FLUTTER_VERSION: "3.29.3"
+  REPO_TAG: "v0.0.4-beta"
+
+jobs:
+  UnitTest:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: libmedianex
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.TOKEN_PAT }}
+          repository: ${{ secrets.CHECKOUT_REPO }}
+          fetch-depth: 1
+          ref: ${{ env.REPO_TAG }}
+      - name: Install Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{ env.GO_VERSION }}
+          cache-dependency-path: libmedianex/go.sum
+      - name: Test Lib
+        run: |
+          bash script/libtest.sh
+  BuildServer:
+    needs: UnitTest
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: libmedianex
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.TOKEN_PAT }}
+          repository: ${{ secrets.CHECKOUT_REPO }}
+          fetch-depth: 1
+          ref: ${{ env.REPO_TAG }}
+      - name: Install Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{ env.GO_VERSION }}
+          cache-dependency-path: libmedianex/go.sum
+      - name: Build Server Docker
+        run: |
+          docker login ghcr.io -u labulakalia -p ${{ secrets.TOKEN_PAT }}
+          make build_server
+
+  BuildLib:
+    needs: UnitTest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest] #macos-latest, windows-latest
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.TOKEN_PAT }}
+          repository: ${{ secrets.CHECKOUT_REPO }}
+          fetch-depth: 1
+          ref: ${{ env.REPO_TAG }}
+      - name: Install Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{ env.GO_VERSION }}
+          cache-dependency-path: libmedianex/go.sum
+      - if: startsWith(matrix.os, 'ubuntu-latest')
+        run: sudo apt install -y gcc-aarch64-linux-gnu
+      - name: Build Lib
+        run: |
+          cd libmedianex
+          make build_lib
+      - name: Upload Lib
+        uses: actions/upload-artifact@v4
+        with:
+          name: libmedianex_${{ runner.os }}
+          path: libmedianex/dist
+  BuildAPP:
+    needs: BuildLib
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, macos-13, windows-latest] #
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.TOKEN_PAT }}
+          repository: ${{ secrets.CHECKOUT_REPO }}
+          fetch-depth: 1
+          ref: ${{ env.REPO_TAG }}
+      - name: Setup Flutter SDK
+        uses: flutter-actions/setup-flutter@v4
+        with:
+          channel: stable
+          version: ${{ env.FLUTTER_VERSION }}
+          cache: true
+          cache-key: ${{ runner.os }}-flutter-${{ hashFiles('pubspec.lock') }}
+      - name: Flutter Doctor
+        run: |
+          flutter doctor -v
+      - name: Download Lib
+        uses: actions/download-artifact@v4
+        with:
+          name: libmedianex_${{ runner.os }}
+          path: libmedianex/dist/
+      - name: Get Architecture
+        run: |
+          architecture=$(uname -m)
+          echo "ARCH=$architecture" >> $GITHUB_ENV
+      - if: startsWith(matrix.os, 'ubuntu-latest')
+        name: Build Linux APP
+        run: |
+          sudo apt install -y libgtk-3-dev
+          # android
+          # cp ./libmedianex/dist/android/amd64/libmedianex.so medianexui_plugin/android/src/main/jniLibs/x86_64/libmedianex.so
+          # cp ./libmedianex/dist/android/arm64/libmedianex.so medianexui_plugin/android/src/main/jniLibs/arm64-v8a/libmedianex.so
+          # cp ./libmedianex/dist/android/arm/libmedianex.so medianexui_plugin/android/src/main/jniLibs/armeabi-v7a/libmedianex.so
+          # linux
+          cp libmedianex/dist/linux/amd64/libmedianex.so medianexui_plugin/linux/x86_64/libmedianex.so
+          cp libmedianex/dist/linux/arm64/libmedianex.so medianexui_plugin/linux/arm64/libmedianex.so
+          cd medianexui
+          dart pub global activate fastforge
+          fastforge release --name linux --jobs deb
+          bash changefilename.sh
+      - if: startsWith(matrix.os, 'windows-latest')
+        name: Build Windows APP
+        run: |
+          cp libmedianex/dist/windows/amd64/* medianexui_plugin/windows/x86_64/
+          cp libmedianex/dist/windows/arm64/* medianexui_plugin/windows/arm64/
+          cd medianexui
+          dart pub global activate fastforge
+          fastforge.bat release --name windows --jobs exe
+          bash changefilename.sh
+      - if: startsWith(matrix.os, 'macos')
+        name: Build Macos APP
+        run: |
+          if [[ ${ARCH} == "x86_64" ]];then
+            cp -rf libmedianex/dist/darwin/amd64/libmedianex.dylib medianexui_plugin/macos/Frameworks/
+          else
+            cp -rf libmedianex/dist/darwin/arm64/libmedianex.dylib medianexui_plugin/macos/Frameworks/
+          fi
+          cd medianexui
+          npm install -g appdmg
+          dart pub global activate fastforge
+          FLUTTER_XCODE_ARCHS=${ARCH} fastforge release --name macos --jobs dmg
+          bash changefilename.sh
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          token: ${{ secrets.TOKEN_PAT }}
+          name: ${{ env.REPO_TAG }}
+          tag_name: ${{ env.REPO_TAG }}
+          files: medianexui/dist/**/*
