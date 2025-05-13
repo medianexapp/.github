@@ -140,7 +140,7 @@ jobs:
           cp libmedianex/dist/linux/arm64/libmedianex.so medianexui_plugin/linux/arm64/libmedianex.so
           cd medianexui
           dart pub global activate fastforge
-          fastforge release --name linux --jobs deb
+          fastforge release --name linux --jobs deb --skip-clean
           bash changefilename.sh
       - if: startsWith(matrix.os, 'windows-latest')
         name: Build Windows APP
@@ -149,7 +149,7 @@ jobs:
           cp libmedianex/dist/windows/arm64/* medianexui_plugin/windows/arm64/
           cd medianexui
           dart pub global activate fastforge
-          fastforge.bat release --name windows --jobs exe
+          fastforge.bat release --name windows --jobs exe --skip-clean
           bash changefilename.sh
       - if: startsWith(matrix.os, 'macos')
         name: Build Macos APP
@@ -162,7 +162,7 @@ jobs:
           cd medianexui
           npm install -g appdmg
           dart pub global activate fastforge
-          FLUTTER_XCODE_ARCHS=${ARCH} fastforge release --name macos --jobs dmg
+          FLUTTER_XCODE_ARCHS=${ARCH} fastforge release --name macos --jobs dmg --skip-clean
           bash changefilename.sh
       - name: Release
         uses: softprops/action-gh-release@v2
