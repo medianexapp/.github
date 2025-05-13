@@ -16,7 +16,7 @@ A powerful video player, supports various protocols and cloud disks, automatic g
 
 </details>
 
-### Support Platform And Downloads
+## Support Platform And Downloads
 
 [![Static Badge](https://img.shields.io/badge/Macos_arm64_dmg-v0.0.3_beta-blue?style=flat)](https://file.medianex.app/macos/medianex-0.0.3-beta-macos-arm64.dmg)
 
@@ -34,17 +34,19 @@ A powerful video player, supports various protocols and cloud disks, automatic g
 
 ![Static Badge](https://img.shields.io/badge/Android_TV-Coming_Soon-green?style=flat)
 
-### Discussions
+## Future Request OR Report Bug
 
-[Discussions](https://github.com/orgs/medianexapp/discussions)
+[Future Request](https://github.com/orgs/medianexapp/discussions/new?category=future-request)
 
-### Support plugins
+[Report Bug](https://github.com/orgs/medianexapp/discussions/new?category=bug-report)
+
+## Support Plugins
 
 Support various protocols and cloud disk access through plug-in design, plugins base on webassembly
 
 [Plugins](https://github.com/medianexapp/plugins)
 
-### How to devlop a plugin
+## How to devlop a plugin
 
 > Need install [tinygo](https://github.com/tinygo-org/tinygo)  
 > Note: tinygo's runtime file must replace this [PR](https://github.com/tinygo-org/tinygo/pull/4875/files)'s files src/runtime/\*.go, or wait next release
@@ -60,7 +62,7 @@ Support various protocols and cloud disk access through plug-in design, plugins 
    `make`
 6. Install Plugin From Local
 
-### Follow Author
+## Follow Author
 
 ![X (formerly Twitter) Follow](https://img.shields.io/twitter/follow/labulakalia)  
 ![GitHub followers](https://img.shields.io/github/followers/labulakalia)
