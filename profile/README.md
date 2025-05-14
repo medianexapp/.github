@@ -20,15 +20,15 @@ A powerful video player, supports various protocols and cloud disks, automatic g
 
 ## Support Platform And Downloads
 
-[![Static Badge](https://img.shields.io/badge/Macos_arm64_dmg-v0.0.4_beta-blue?style=flat&logo=macos)](https://file.medianex.app/release/0.0.4-beta/medianex-0.0.4-beta-macos_arm64.dmg)
+[![Static Badge](https://img.shields.io/badge/Macos_arm64_dmg-v0.0.5_beta-blue?style=flat&logo=macos)](https://file.medianex.app/release/0.0.5-beta/medianex-0.0.5-beta-macos_arm64.dmg)
 
-[![Static Badge](https://img.shields.io/badge/Macos_x86_64_dmg-v0.0.4_beta-blue?style=flat&logo=macos)](https://file.medianex.app/release/0.0.4-beta/medianex-0.0.4-beta-macos_x86_64.dmg)
+[![Static Badge](https://img.shields.io/badge/Macos_x86_64_dmg-v0.0.5_beta-blue?style=flat&logo=macos)](https://file.medianex.app/release/0.0.5-beta/medianex-0.0.5-beta-macos_x86_64.dmg)
 
-[![Static Badge](https://img.shields.io/badge/Windows_x86_64_exe-v0.0.4_beta-blue?style=flat)](https://file.medianex.app/release/0.0.4-beta/medianex-0.0.4-beta-windows-setup_x86_64.exe)
+[![Static Badge](https://img.shields.io/badge/Windows_x86_64_exe-v0.0.5_beta-blue?style=flat)](https://file.medianex.app/release/0.0.5-beta/medianex-0.0.5-beta-windows-setup_x86_64.exe)
 
-[![Static Badge](https://img.shields.io/badge/Debian_x86_64_deb-v0.0.4_beta-blue?style=flat&logo=debian)](https://file.medianex.app/release/0.0.4-beta/medianex-0.0.4-beta-linux_x86_64.deb)
+[![Static Badge](https://img.shields.io/badge/Debian_x86_64_deb-v0.0.5_beta-blue?style=flat&logo=debian)](https://file.medianex.app/release/0.0.5-beta/medianex-0.0.5-beta-linux_x86_64.deb)
 
-[![Static Badge](https://img.shields.io/badge/ArchLinux_x86_64_zst-v0.0.4_beta-blue?style=flat&logo=archlinux)](https://file.medianex.app/release/0.0.4-beta/medianex-0.0.4-beta-linux-x86_64.pkg.tar.zst)
+[![Static Badge](https://img.shields.io/badge/ArchLinux_x86_64_zst-v0.0.5_beta-blue?style=flat&logo=archlinux)](https://file.medianex.app/release/0.0.5-beta/medianex-0.0.5-beta-linux-x86_64.pkg.tar.zst)
 
 ![Static Badge](https://img.shields.io/badge/IOS-Coming_Soon-green?style=flat)
 
