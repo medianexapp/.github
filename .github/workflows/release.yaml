@@ -2,13 +2,13 @@ name: Release
 
 on:
   push:
-    tags:
-      - "v*"
+    branches:
+      - main
 
 env:
   GO_VERSION: "1.24.3"
   FLUTTER_VERSION: "3.29.3"
-  REPO_TAG: "v0.0.7-beta"
+  REPO_TAG: "v0.0.8-beta"
 
 jobs:
   UnitTest:
