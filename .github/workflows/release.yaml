@@ -2,15 +2,13 @@ name: Release
 
 on:
   push:
-    branches:
-      - main
     tags:
       - "v*"
 
 env:
   GO_VERSION: "1.24.3"
   FLUTTER_VERSION: "3.29.3"
-  REPO_TAG: "main"
+  REPO_TAG: "v0.0.7-beta"
 
 jobs:
   UnitTest:
@@ -64,7 +62,7 @@ jobs:
     needs: UnitTest
     strategy:
       matrix:
-        os: [windows-latest] #
+        os: [windows-latest, macos-latest, ubuntu-latest] #
     runs-on: ${{ matrix.os }}
     defaults:
       run:
@@ -97,7 +95,7 @@ jobs:
     needs: ReleaseLib
     strategy:
       matrix:
-        os: [windows-latest] #
+        os: [windows-latest, macos-latest, macos-13, ubuntu-latest] #
     runs-on: ${{ matrix.os }}
     defaults:
       run:
@@ -142,7 +140,7 @@ jobs:
           cp libmedianex/dist/linux/arm64/libmedianex.so medianexui_plugin/linux/arm64/libmedianex.so
           cd medianexui
           dart pub global activate fastforge
-          fastforge release --name linux --jobs deb --skip-clean
+          fastforge release --name linux --jobs deb
           bash changefilename.sh
       - if: startsWith(matrix.os, 'windows-latest')
         name: Build Windows APP
@@ -164,7 +162,7 @@ jobs:
           cd medianexui
           npm install -g appdmg
           dart pub global activate fastforge
-          FLUTTER_XCODE_ARCHS=${ARCH} fastforge release --name macos --jobs dmg --skip-clean
+          FLUTTER_XCODE_ARCHS=${ARCH} fastforge release --name macos --jobs dmg
           bash changefilename.sh
       # - name: Release
       #   uses: softprops/action-gh-release@v2
