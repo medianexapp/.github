@@ -10,7 +10,7 @@ on:
 env:
   GO_VERSION: "1.24.3"
   FLUTTER_VERSION: "3.29.3"
-  REPO_TAG: "v0.0.7-beta"
+  REPO_TAG: "main"
 
 jobs:
   UnitTest:
@@ -64,7 +64,7 @@ jobs:
     needs: UnitTest
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest] #
+        os: [windows-latest] #
     runs-on: ${{ matrix.os }}
     defaults:
       run:
@@ -97,7 +97,7 @@ jobs:
     needs: ReleaseLib
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest, macos-13, windows-latest] #
+        os: [windows-latest] #
     runs-on: ${{ matrix.os }}
     defaults:
       run:
