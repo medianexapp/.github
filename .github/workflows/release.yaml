@@ -31,7 +31,7 @@ jobs:
         uses: actions/setup-go@v5
         with:
           go-version: ${{ env.GO_VERSION }}
-          cache-dependency-path: libmedianex/go.sum
+          cache-dependency-path: libmedianex/go.mod
       - name: Test Lib
         run: |
           bash script/libtest.sh
@@ -54,7 +54,7 @@ jobs:
         uses: actions/setup-go@v5
         with:
           go-version: ${{ env.GO_VERSION }}
-          cache-dependency-path: libmedianex/go.sum
+          cache-dependency-path: libmedianex/go.mod
       - name: Build Server Docker
         run: |
           docker login ghcr.io -u labulakalia -p ${{ secrets.TOKEN_PAT }}
@@ -81,7 +81,7 @@ jobs:
         uses: actions/setup-go@v5
         with:
           go-version: ${{ env.GO_VERSION }}
-          cache-dependency-path: libmedianex/go.sum
+          cache-dependency-path: libmedianex/go.mod
       - if: startsWith(matrix.os, 'ubuntu-latest')
         run: sudo apt install -y gcc-aarch64-linux-gnu
       - name: Build Lib
@@ -151,7 +151,7 @@ jobs:
           cp libmedianex/dist/windows/arm64/* medianexui_plugin/windows/arm64/
           cd medianexui
           dart pub global activate fastforge
-          fastforge.bat release --name windows --jobs exe --skip-clean
+          fastforge.bat release --name windows --jobs exe
           bash changefilename.sh
       - if: startsWith(matrix.os, 'macos')
         name: Build Macos APP
